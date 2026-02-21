@@ -1,14 +1,25 @@
 (function () {
   const page = document.body?.dataset?.page || "";
   const ls = window.localStorage;
-  const defaultApiBase = "http://localhost:5001";
+  const isFileProtocol = window.location.protocol === "file:";
+  const isLocalHost = ["localhost", "127.0.0.1"].includes(window.location.hostname);
+  const defaultApiBase = isFileProtocol ? "http://localhost:5001" : "";
+
+  function normalizeApiBase(base) {
+    return (base || "").replace(/\/+$/, "");
+  }
 
   function getApiBase() {
-    return (ls.getItem("investai_api_base") || defaultApiBase).replace(/\/+$/, "");
+    const stored = normalizeApiBase(ls.getItem("investai_api_base") || "");
+    if (!isLocalHost && (stored.includes("localhost") || stored.includes("127.0.0.1"))) {
+      ls.removeItem("investai_api_base");
+      return defaultApiBase;
+    }
+    return stored || defaultApiBase;
   }
 
   function setApiBase(base) {
-    ls.setItem("investai_api_base", (base || "").replace(/\/+$/, ""));
+    ls.setItem("investai_api_base", normalizeApiBase(base));
   }
 
   async function api(path, options = {}) {
@@ -396,4 +407,3 @@
   if (page === "report") initReport();
   if (page === "settings") initSettings();
 })();
-
