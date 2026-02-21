@@ -2,33 +2,19 @@
   const page = document.body?.dataset?.page || "";
   const ls = window.localStorage;
   const isFileProtocol = window.location.protocol === "file:";
-  const isLocalHost = ["localhost", "127.0.0.1"].includes(window.location.hostname);
-  const forceSameOriginApi = !isFileProtocol && !isLocalHost;
-  const defaultApiBase = isFileProtocol ? "http://localhost:5001" : "";
+  const fixedApiBase = isFileProtocol ? "http://localhost:5001" : "";
 
   function normalizeApiBase(base) {
     return (base || "").replace(/\/+$/, "");
   }
 
   function getApiBase() {
-    if (forceSameOriginApi) {
-      ls.removeItem("investai_api_base");
-      return "";
-    }
-    const stored = normalizeApiBase(ls.getItem("investai_api_base") || "");
-    if (!isLocalHost && (stored.includes("localhost") || stored.includes("127.0.0.1"))) {
-      ls.removeItem("investai_api_base");
-      return defaultApiBase;
-    }
-    return stored || defaultApiBase;
+    return fixedApiBase;
   }
 
   function setApiBase(base) {
-    if (forceSameOriginApi) {
-      ls.removeItem("investai_api_base");
-      return;
-    }
-    ls.setItem("investai_api_base", normalizeApiBase(base));
+    if (!isFileProtocol) return;
+    ls.setItem("investai_api_base", normalizeApiBase(base || "http://localhost:5001"));
   }
 
   async function api(path, options = {}) {
@@ -352,7 +338,8 @@
       status.style.color = ok ? "#7ef5b8" : "#ff5f6d";
     }
 
-    apiBaseInput.value = getApiBase();
+    apiBaseInput.value = getApiBase() || window.location.origin;
+    if (!isFileProtocol) apiBaseInput.disabled = true;
     webmcpSimToggle.checked = getStoredMode() === "simulation";
 
     try {
@@ -370,7 +357,7 @@
 
     document.getElementById("save-settings-btn")?.addEventListener("click", async () => {
       try {
-        setApiBase(apiBaseInput.value || defaultApiBase);
+        setApiBase(apiBaseInput.value || "http://localhost:5001");
         const payload = {
           demo_mode: demoToggle.checked,
           coingecko_api_key: document.getElementById("coingecko-api-key").value,
