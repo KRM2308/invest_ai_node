@@ -3,6 +3,7 @@
   const ls = window.localStorage;
   const isFileProtocol = window.location.protocol === "file:";
   const isLocalHost = ["localhost", "127.0.0.1"].includes(window.location.hostname);
+  const forceSameOriginApi = !isFileProtocol && !isLocalHost;
   const defaultApiBase = isFileProtocol ? "http://localhost:5001" : "";
 
   function normalizeApiBase(base) {
@@ -10,6 +11,10 @@
   }
 
   function getApiBase() {
+    if (forceSameOriginApi) {
+      ls.removeItem("investai_api_base");
+      return "";
+    }
     const stored = normalizeApiBase(ls.getItem("investai_api_base") || "");
     if (!isLocalHost && (stored.includes("localhost") || stored.includes("127.0.0.1"))) {
       ls.removeItem("investai_api_base");
@@ -19,6 +24,10 @@
   }
 
   function setApiBase(base) {
+    if (forceSameOriginApi) {
+      ls.removeItem("investai_api_base");
+      return;
+    }
     ls.setItem("investai_api_base", normalizeApiBase(base));
   }
 
