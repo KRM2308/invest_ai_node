@@ -1,0 +1,9 @@
+{
+  "demo_mode": true,
+  "coingecko_api_key": "",
+  "reddit_client_id": "",
+  "reddit_client_secret": "",
+  "reddit_user_agent": "InvestAI/1.0",
+  "telegram_bot_token": "",
+  "telegram_chat_id": ""
+}

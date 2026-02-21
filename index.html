@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>InvestAI | Recherche</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;900&family=IBM+Plex+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./styles.css?v=20260221a" />
+</head>
+<body data-page="search">
+  <div class="glow glow-a"></div>
+  <div class="glow glow-b"></div>
+  <nav class="top-nav">
+    <a class="logo" href="./index.html">INVEST<span>AI</span></a>
+    <div class="nav-links">
+      <a class="active" href="./index.html">Recherche</a>
+      <a href="./dashboard.html">Dashboard</a>
+      <a href="./report.html">Rapport</a>
+      <a href="./settings.html">Paramètres</a>
+    </div>
+  </nav>
+
+  <main class="page">
+    <section class="hero">
+      <span class="chip">Due Diligence IA</span>
+      <h1>Quantum <span>Research</span></h1>
+      <p>Analyse financière, fiabilité fondateur et sentiment social avec données réelles et alertes Telegram.</p>
+    </section>
+
+    <section class="card">
+      <label class="label" for="entity-input">Entité à analyser</label>
+      <input id="entity-input" class="input" placeholder="Ex: Bitcoin, AAPL, OpenAI" />
+      <div class="row">
+        <button id="analyze-btn" class="btn btn-primary">Lancer la Recherche</button>
+        <button id="watch-btn" class="btn">Ajouter à la Watchlist</button>
+      </div>
+      <p class="hint">Appel API: <code>/api/analyze?entity=...</code></p>
+    </section>
+
+    <section id="verdict-box" class="card verdict hidden">
+      <span class="chip">Verdict IA</span>
+      <h2 id="v-entity">-</h2>
+      <div class="score" id="v-score">--</div>
+      <h3 id="v-decision">-</h3>
+      <p id="v-reason">-</p>
+      <div class="metrics">
+        <div><strong>Financials</strong><span id="m-fin">-</span></div>
+        <div><strong>Founders</strong><span id="m-fnd">-</span></div>
+        <div><strong>Social</strong><span id="m-soc">-</span></div>
+      </div>
+      <div class="row">
+        <a id="open-report-link" class="btn" href="./report.html">Deep Dive</a>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Console d'exécution</h2>
+      <div id="console-logs" class="console"></div>
+    </section>
+  </main>
+
+  <script src="./app.js?v=20260221a"></script>
+</body>
+</html>
+

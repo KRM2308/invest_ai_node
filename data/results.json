@@ -1,0 +1,45 @@
+[
+  {
+    "entity": "Bitcoin",
+    "score": 66,
+    "verdict": "OBSERVER",
+    "reason": "Financial momentum 70/100, founder reliability 80%, social sentiment NEUTRAL.",
+    "financials": {
+      "score": 70,
+      "market_cap": 154000000.0,
+      "price_change_7d": 14.0,
+      "price": 119.0,
+      "revenue_estimate": 29400000.0,
+      "burn_rate": 11200000.0,
+      "source": "demo"
+    },
+    "founders": {
+      "score": 80,
+      "name": "Alex Rossi",
+      "founders": [
+        "Alex Rossi",
+        "Leo Kell"
+      ],
+      "reliability": 80,
+      "past_exits": 3,
+      "red_flags": "Demo mode: simulated profile",
+      "source": "simulation"
+    },
+    "social": {
+      "score": 46,
+      "sentiment": "NEUTRAL",
+      "intensity": 80,
+      "bullish_ratio": 0.46,
+      "top_post": "Demo mode: market chatter is simulated.",
+      "sample_size": 25,
+      "source": "demo"
+    },
+    "weights": {
+      "financials": 0.4,
+      "founders": 0.3,
+      "social": 0.3
+    },
+    "mode": "demo",
+    "timestamp": "2026-02-21T14:34:57.148715+00:00"
+  }
+]

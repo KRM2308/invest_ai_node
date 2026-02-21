@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>InvestAI | Paramètres</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;900&family=IBM+Plex+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./styles.css?v=20260221a" />
+</head>
+<body data-page="settings">
+  <div class="glow glow-a"></div>
+  <div class="glow glow-b"></div>
+  <nav class="top-nav">
+    <a class="logo" href="./index.html">INVEST<span>AI</span></a>
+    <div class="nav-links">
+      <a href="./index.html">Recherche</a>
+      <a href="./dashboard.html">Dashboard</a>
+      <a href="./report.html">Rapport</a>
+      <a class="active" href="./settings.html">Paramètres</a>
+    </div>
+  </nav>
+
+  <main class="page">
+    <section class="hero">
+      <span class="chip">Configuration</span>
+      <h1>Paramètres <span>API</span></h1>
+      <p>Configure les clés et les notifications Telegram. Mode Démo ou Mode Réel.</p>
+    </section>
+
+    <section class="card form-grid">
+      <label class="label" for="api-base">API Backend</label>
+      <input id="api-base" class="input" placeholder="http://localhost:5001" />
+
+      <label class="label" for="coingecko-api-key">CoinGecko API Key</label>
+      <input id="coingecko-api-key" class="input" placeholder="Optionnel" />
+
+      <label class="label" for="reddit-client-id">Reddit Client ID</label>
+      <input id="reddit-client-id" class="input" placeholder="Optionnel" />
+
+      <label class="label" for="reddit-client-secret">Reddit Client Secret</label>
+      <input id="reddit-client-secret" class="input" placeholder="Optionnel" />
+
+      <label class="label" for="reddit-user-agent">Reddit User Agent</label>
+      <input id="reddit-user-agent" class="input" placeholder="InvestAI/1.0" />
+
+      <label class="label" for="telegram-bot-token">Telegram Bot Token</label>
+      <input id="telegram-bot-token" class="input" placeholder="123456:ABC..." />
+
+      <label class="label" for="telegram-chat-id">Telegram Chat ID</label>
+      <input id="telegram-chat-id" class="input" placeholder="6555076647" />
+
+      <label class="label inline">
+        <input id="demo-mode-toggle" type="checkbox" />
+        Mode Démo
+      </label>
+
+      <label class="label inline">
+        <input id="webmcp-sim-toggle" type="checkbox" />
+        WebMCP Simulation (sinon backend)
+      </label>
+
+      <div class="row">
+        <button id="save-settings-btn" class="btn btn-primary">Sauver</button>
+        <button id="test-telegram-btn" class="btn">Tester Telegram</button>
+      </div>
+      <p id="settings-status" class="hint"></p>
+    </section>
+  </main>
+
+  <script src="./app.js?v=20260221a"></script>
+</body>
+</html>
+

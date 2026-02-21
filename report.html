@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>InvestAI | Rapport</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;900&family=IBM+Plex+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./styles.css?v=20260221a" />
+</head>
+<body data-page="report">
+  <div class="glow glow-a"></div>
+  <div class="glow glow-b"></div>
+  <nav class="top-nav">
+    <a class="logo" href="./index.html">INVEST<span>AI</span></a>
+    <div class="nav-links">
+      <a href="./index.html">Recherche</a>
+      <a href="./dashboard.html">Dashboard</a>
+      <a class="active" href="./report.html">Rapport</a>
+      <a href="./settings.html">Paramètres</a>
+    </div>
+  </nav>
+
+  <main class="page">
+    <section class="hero">
+      <span class="chip">Deep Dive</span>
+      <h1 id="report-title">Rapport <span>Entité</span></h1>
+      <p id="report-subtitle">Analyse complète financière, fondateur et sentiment social.</p>
+      <div class="row">
+        <button id="run-report-analysis-btn" class="btn btn-primary">Relancer Analyse</button>
+        <button id="export-pdf-btn" class="btn">Exporter PDF</button>
+      </div>
+    </section>
+
+    <section class="grid report-grid">
+      <article class="card">
+        <h2>Financials</h2>
+        <div class="kpi-list">
+          <div><span>Score</span><strong id="rf-score">-</strong></div>
+          <div><span>Market Cap</span><strong id="rf-market-cap">-</strong></div>
+          <div><span>Revenue</span><strong id="rf-revenue">-</strong></div>
+          <div><span>Burn Rate</span><strong id="rf-burn">-</strong></div>
+          <div><span>7d Change</span><strong id="rf-7d">-</strong></div>
+        </div>
+      </article>
+
+      <article class="card">
+        <h2>Founders</h2>
+        <div class="kpi-list">
+          <div><span>Lead</span><strong id="rfd-name">-</strong></div>
+          <div><span>Fiabilité</span><strong id="rfd-reliability">-</strong></div>
+          <div><span>Past Exits</span><strong id="rfd-exits">-</strong></div>
+          <div><span>Red Flags</span><strong id="rfd-flags">-</strong></div>
+        </div>
+      </article>
+
+      <article class="card">
+        <h2>Social Sentiment</h2>
+        <div class="kpi-list">
+          <div><span>Sentiment</span><strong id="rs-label">-</strong></div>
+          <div><span>Intensity</span><strong id="rs-intensity">-</strong></div>
+          <div><span>Bullish Ratio</span><strong id="rs-ratio">-</strong></div>
+          <div><span>Top Post</span><strong id="rs-top-post">-</strong></div>
+        </div>
+        <canvas id="sentiment-chart" width="520" height="170"></canvas>
+      </article>
+
+      <article class="card verdict-panel">
+        <h2>Verdict IA Final</h2>
+        <div class="score" id="rv-score">--</div>
+        <h3 id="rv-verdict">-</h3>
+        <p id="rv-reason">-</p>
+      </article>
+    </section>
+  </main>
+
+  <script src="./app.js?v=20260221a"></script>
+</body>
+</html>
+

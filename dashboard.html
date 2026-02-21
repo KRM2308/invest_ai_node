@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>InvestAI | Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;900&family=IBM+Plex+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./styles.css?v=20260221a" />
+</head>
+<body data-page="dashboard">
+  <div class="glow glow-a"></div>
+  <div class="glow glow-b"></div>
+  <nav class="top-nav">
+    <a class="logo" href="./index.html">INVEST<span>AI</span></a>
+    <div class="nav-links">
+      <a href="./index.html">Recherche</a>
+      <a class="active" href="./dashboard.html">Dashboard</a>
+      <a href="./report.html">Rapport</a>
+      <a href="./settings.html">Paramètres</a>
+    </div>
+  </nav>
+
+  <main class="page">
+    <section class="hero">
+      <span class="chip">Portfolio Intelligence</span>
+      <h1>Dashboard <span>Live</span></h1>
+      <p>Suivi de toutes les entités analysées. Mise à jour automatique toutes les 60 secondes.</p>
+    </section>
+
+    <section class="card">
+      <div class="row">
+        <button id="refresh-dashboard-btn" class="btn btn-primary">Rafraîchir</button>
+        <span id="dashboard-status" class="hint">Chargement...</span>
+      </div>
+      <div id="portfolio-grid" class="grid cards-grid"></div>
+    </section>
+  </main>
+
+  <script src="./app.js?v=20260221a"></script>
+</body>
+</html>
+
