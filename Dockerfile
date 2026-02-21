@@ -16,4 +16,4 @@ COPY . .
 
 EXPOSE 5001
 
-CMD sh -c 'gunicorn --bind 0.0.0.0:${PORT:-5001} --workers 2 --threads 4 --timeout 120 server:app'
+CMD ["sh", "-c", "gunicorn --bind 0.0.0.0:${PORT:-5001} --workers 2 --threads 4 --timeout 120 server:app"]
